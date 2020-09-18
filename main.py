@@ -8,13 +8,12 @@ t=1
 while 0<t<=4:
   
   input_1= input("\nWhat are the first 2 digits of your capacitor:\n")
-
   if len(input_1)!=2: 
     if len(input_1) !=2 and math.ceil(float(input_1)+0.01)>1:
       print("\nSorry, I asked for 2 digits you silly!")
     if math.ceil(float(input_1))<=1:
       print("It has to be a whole number from [10,100) you pea-brain!")
-  input_1= int(input("Try to get it right this time, What are the first 2 digits?\n"))
+    input_1= int(input("Try to get it right this time, What are the first 2 digits?\n"))
   input_2= input("\nWhat is the 3rd digit m8:\n")
   if len(input_2)!=1:
       print("\nOne digit, nothing else you goof")
@@ -22,7 +21,7 @@ while 0<t<=4:
   input_3= input("What is the letter at the end of your capacitor (after the digits)?\n")
   set_input3= ['a','A','b','B','c','C','d','D','f','F','g','G','j','J','k','K','m','M','none','n','N','q','Q','s','S','t','T','z','Z']
   if input_3 not in set_input3:
-    print(f"m8, I said the letter, it\'s only one")
+    print(f"m8, I said a letter, it has to be a valid one that's on capacitors, it\'s only one")
     input_3=input("What is the letter again...\n")
   x= int(input_1)
   u= int(input_2)
