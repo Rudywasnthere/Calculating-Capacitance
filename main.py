@@ -21,9 +21,10 @@ while 0<t<=4:
     input("What is the letter again...\n")
   x= int(input_1)
   u= int(input_2)
+  val= 10*x  + u
   modulus= u%3
   floor= (u+1)//3
-  value= ((10*x)+u)* 10**modulus
+  value= val* 10**modulus
   prefix=""
   if modulus==0:
     value= value*100
@@ -100,48 +101,48 @@ while 0<t<=4:
       prefix=='T'
 
   if input_3=='A' or input_3=='a':
-    minimum= 0.9995*value
-    maximum= 1.0005*value
+    minimum+= 0.9995*value
+    maximum+= 1.0005*value
   if input_3=='B' or input_3=='b':
-    minimum= 0.999*value
-    maximum= 1.001*value
+    minimum+= 0.999*value
+    maximum+= 1.001*value
   if input_3=='C' or input_3=='c':
-    minimum=0.9975*value
-    maximum=1.0025*value
+    minimum+=0.9975*value
+    maximum+=1.0025*value
   if input_3=='D' or input_3=='d':
-    minimum=0.005*value
-    maximum=1.005*value
+    minimum+=0.005*value
+    maximum+=1.005*value
   if input_3=='F' or input_3=='f':
-    minimum= 0.99*value
-    maximum=1.01*value
+    minimum+= 0.99*value
+    maximum+=1.01*value
   if input_3=='G' or input_3=='g':
-    minimum=0.98*value
-    maximum=1.02*value
+    minimum+=0.98*value
+    maximum+=1.02*value
   if input_3=='J' or input_3=='j':
-    minimum=0.95*value
-    maximum=1.05*value
+    minimum+=0.95*value
+    maximum+=1.05*value
   if input_3=='K' or input_3=='k':
-    minimum=0.9*value
-    maximum=1.1*value
+    minimum+=0.9*value
+    maximum+=1.1*value
   if input_3=='M' or input_3=='none' or input=='m':
-    minimum=0.8*value
-    maximum=1.2*value
+    minimum+=0.8*value
+    maximum+=1.2*value
   if input_3=='N' or input_3=='n':
-    minimum= 0.7*value
-    maximum=1.3*value
+    minimum+= 0.7*value
+    maximum+=1.3*value
   if input_3=='Q' or input_3=='q':
-    minimum=0.9*value
-    maximum=1.3*value
+    minimum+=0.9*value
+    maximum+=1.3*value
   if input_3=='S' or input_3=='s':
-    minimum=0.8*value
-    maximum=1.5*value
+    minimum+=0.8*value
+    maximum+=1.5*value
   if input_3=='T' or input_3=='t':
-    minimum=0.9*value
-    maximum=1.5*value
+    minimum+=0.9*value
+    maximum+=1.5*value
   if input_3=='A' or input_3=='a':
-    minimum=0.8*value
-    maximum=1.8*value
-  print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_2}")
+    minimum+=0.8*value
+    maximum+=1.8*value
+  print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}")
   t=int(len(input("if these aren't the digits and symbols you wanted to enter \"redo\" else hit enter\n ")))
 ##Gives out final products
   if t==4:
