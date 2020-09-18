@@ -11,7 +11,7 @@ while 0<t<=4:
     print("\nSorry, I asked for 2 digits you silly!")
     input_1= int(input("Try to get it right this time, What are the first 2 digits?\n"))
   input_2= input("\nWhat is the 3rd digit m8:\n")
-  if len(input_2)!=1:
+  if len(input_2)!=1 and int(input_2)>0:
     print("\nOne digit, nothing else you goof")
     input_2= input("Actually read the instructions, what is the 3rd digit and only the 3rd digit of your capacitor?\n")
   x= int(input_1)
@@ -43,31 +43,7 @@ while 0<t<=4:
       prefix=='G'
     if floor==8:
       prefix=='T'
-  if floor==2:
-    value= value/1000
-    if floor==-2:
-      prefix='a'
-    if floor==-1:
-      prefix='f'
-    if floor==0:
-      prefix='p'
-    if floor==1:
-      prefix='n'
-    if floor==2:
-      prefix='µ'
-    if floor==3:
-      prefix=='m'
-    if floor==4:
-      prefix=""
-    if floor==5:
-      prefix=='K'
-    if floor==6:
-      prefix=='M'
-    if floor==7:
-      prefix=='G'
-    if floor==8:
-      prefix=='T'
-  if floor==1:
+  if floor==2 or floor==1 or floor==0:
     value= value/1000
     if floor==-2:
       prefix='a'
