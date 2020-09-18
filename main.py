@@ -17,7 +17,7 @@ while 0<t<=4:
   input_3= input("What is the letter at the end of your capacitor (after the digits)?\n")
   if str.isalpha(input_3) is False:
     print(f"m8, I said the letter, it\'s only one")
-    input("What is the letter again...\n")
+    input_3=input("What is the letter again...\n")
   x= int(input_1)
   u= int(input_2)
   modulus= u%3
@@ -32,46 +32,59 @@ while 0<t<=4:
   if input_3=='A' or input_3=='a':
     minimum= 0.9995*value
     maximum= 1.0005*value
+    tolerance= '±0.05%'
   if input_3=='B' or input_3=='b':
     minimum= 0.999*value
     maximum= 1.001*value
+    tolerance= '±0.1%'
   if input_3=='C' or input_3=='c':
     minimum=0.9975*value
     maximum=1.0025*value
+    tolerance= '±0.25%'
   if input_3=='D' or input_3=='d':
     minimum=0.005*value
     maximum=1.005*value
+    tolerance= '±0.5%'
   if input_3=='F' or input_3=='f':
     minimum= 0.99*value
     maximum=1.01*value
+    tolerance= '± 1%'
   if input_3=='G' or input_3=='g':
     minimum=0.98*value
     maximum=1.02*value
+    tolerance= '± 2%'
   if input_3=='J' or input_3=='j':
     minimum=0.95*value
     maximum=1.05*value
+    tolerance= '± 5%'
   if input_3=='K' or input_3=='k':
     minimum=0.9*value
     maximum=1.1*value
+    tolerance= '± 10%'
   if input_3=='M' or input_3=='none' or input=='m':
     minimum=0.8*value
     maximum=1.2*value
+    tolerance= '± 20%'
   if input_3=='N' or input_3=='n':
     minimum= 0.7*value
     maximum=1.3*value
+    tolerance= '± 30%'
   if input_3=='Q' or input_3=='q':
     minimum=0.9*value
     maximum=1.3*value
+    tolerance= '-10%, +30%'
   if input_3=='S' or input_3=='s':
     minimum=0.8*value
     maximum=1.5*value
+    tolerance= '-20%, +50%'
   if input_3=='T' or input_3=='t':
     minimum=0.9*value
     maximum=1.5*value
+    tolerance= '-10%, +50%'
   if input_3=='Z' or input_3=='z':
     minimum=0.8*value
     maximum=1.8*value
-
+    tolerance= '-20%, +80%'
   if u==0 or u==1:
     prefix='p'
     prefix_1='p'
@@ -101,9 +114,10 @@ while 0<t<=4:
       prefix= 'T'
       prefix_1='T'
   if modulus==2 and x!=10:
-    value= value/100
-    minimum= minimum/100
-    maximum= maximum/100
+    value= value/10000
+    minimum= minimum/10000
+    maximum= maximum/10000
+    floor = floor +1
     if floor==0:
       prefix= 'p'
       prefix_1= 'p'
@@ -129,12 +143,10 @@ while 0<t<=4:
       prefix= 'T'
       prefix_1='T'
   if modulus==2 and x==10:
-    value=value/10000
+    value=value/10
     minimum= minimum/10
-    maximum= maximum/10000
-    if u==2:
-      prefix='p'
-      prefix_1='p'
+    maximum= maximum/10
+    floor= floor +1
     if floor==0:
       prefix= 'p'
       prefix_1= 'f'
@@ -163,7 +175,7 @@ while 0<t<=4:
   if u==3:
     prefix='n'
     prefix_1='n'
-
+  if modulus==0:
     value= value
     minimum= minimum
     maximum= maximum
@@ -228,18 +240,18 @@ while 0<t<=4:
   if round_number=="" or round_number=="none":
     round_min= minimum
     round_max= maximum
-    print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}, and you didn't round your answers")
+    print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}, and you\ndidn't round your answers")
   else: 
     round_min= round(minimum, int(round_number))
     round_max= round(maximum, int(round_number))
     print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}, and you are rounding to {int(round_number)} decimal places")
-  t=int(len(input("if these aren't the digits and symbols you wanted, enter \"redo\" ; else hit enter\n ")))
+  t=int(len(input("if these aren't the digits and symbols you wanted, enter \"redo\"else hit enter\n ")))
 ##Gives out final products
   if t==4:
     print('Restart...\n')
     t=t
   elif t!=4:
-    print(f"\nHere is your capacitance:\n{value} {prefix}F\nmin= {round_min} {prefix_1}F\nmax= {round_max} {prefix}F")
+    print(f"\nHere is your capacitance with a tolerance of {tolerance}:\n{value} {prefix}F \nmin= {round_min} {prefix_1}F\nmax= {round_max} {prefix}F")
     ask= len(input("\nWould you like to go again? (yes or no please)\n"))
     if ask==3:
       t=4
