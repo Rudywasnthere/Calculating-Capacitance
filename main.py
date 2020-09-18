@@ -1,5 +1,6 @@
 ##Rudy Garcia
-import time, sys
+import time, time
+import math, math
 print("Hi! I'm here to calculate capacitance and give you your variation :)\n")
 time.sleep(2)
 print("Make sure that your capacitor doesn't already tell you. If it has a prefix, most likely( p,f,n,µ,or m), then that is already your capacitance :), else:")
@@ -7,15 +8,20 @@ t=1
 while 0<t<=4:
   
   input_1= input("\nWhat are the first 2 digits of your capacitor:\n")
-  if len(input_1) !=2:
-    print("\nSorry, I asked for 2 digits you silly!")
-    input_1= int(input("Try to get it right this time, What are the first 2 digits?\n"))
+
+  if len(input_1)!=2: 
+    if len(input_1) !=2 and math.ceil(float(input_1)+0.01)>1:
+      print("\nSorry, I asked for 2 digits you silly!")
+    if math.ceil(float(input_1))<=1:
+      print("It has to be a whole number from [10,100) you pea-brain!")
+  input_1= int(input("Try to get it right this time, What are the first 2 digits?\n"))
   input_2= input("\nWhat is the 3rd digit m8:\n")
   if len(input_2)!=1:
       print("\nOne digit, nothing else you goof")
       input_2= input("Actually read the instructions, what is the 3rd digit and only the 3rd digit of your capacitor?\n")
   input_3= input("What is the letter at the end of your capacitor (after the digits)?\n")
-  if str.isalpha(input_3) is False:
+  set_input3= ['a','A','b','B','c','C','d','D','f','F','g','G','j','J','k','K','m','M','none','n','N','q','Q','s','S','t','T','z','Z']
+  if input_3 not in set_input3:
     print(f"m8, I said the letter, it\'s only one")
     input_3=input("What is the letter again...\n")
   x= int(input_1)
@@ -242,8 +248,15 @@ while 0<t<=4:
     round_max= maximum
     print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}, and you\ndidn't round your answers")
   else: 
-    round_min= round(minimum, int(round_number))
-    round_max= round(maximum, int(round_number))
+    if 1<=value<10:
+      round_min= round(minimum, int(round_number)+1)
+      round_max= round(maximum, int(round_number)+1)
+    if 10<=value<100:
+      round_min= round(minimum, int(round_number)+2)
+      round_max= round(maximum, int(round_number)+2)
+    if 100<=value<1000:
+      round_min= round(minimum, int(round_number)+3)
+      round_max= round(maximum, int(round_number)+3)
     print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}, and you are rounding to {int(round_number)} decimal places")
   t=int(len(input("if these aren't the digits and symbols you wanted, enter \"redo\"else hit enter\n ")))
 ##Gives out final products
@@ -251,11 +264,16 @@ while 0<t<=4:
     print('Restart...\n')
     t=t
   elif t!=4:
-    print(f"\nHere is your capacitance with a tolerance of {tolerance}:\n{value} {prefix}F \nmin= {round_min} {prefix_1}F\nmax= {round_max} {prefix}F")
+    print(f"\nHere is your capacitance with a tolerance of {tolerance}:\n{value} {prefix}F \nmin= {round_min} {prefix_1}F\nmax= {round_max} {prefix}F\n\nderp ☉ ‿ ⚆")
     ask= len(input("\nWould you like to go again? (yes or no please)\n"))
     if ask==3:
       t=4
     if ask==2:
-      t+=5
+      print("I hope this program served you well!\nThank you for using.\nderp ☉ ‿ ⚆")
+      d= input("Press enter to exit (any other button will let you redo the program")
+      if d=="" :
+        t+=5
+      if d!="":
+        t=4
     elif ask!=2 and ask!=3:
       input("I\'m not sure what you saying there. Please re-enter \"yes\" or \"no\"")
