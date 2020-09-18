@@ -21,24 +21,14 @@ while 0<t<=4:
   x= int(input_1)
   u= int(input_2)
   modulus= u%3
-  floor= (u+1)//3
+  floor= (u)//3
   value= x* 10**modulus
   prefix=""
   prefix_1=""
-  if  0<u<3:
-    floor=u
-    modulus=u-3
-    if u==0:
-      modulus=0
-      prefix= ""
-    if u ==1:
-      modulus=1
-      prefix= ""
-    if u ==2:
-      modulus= -1
-      prefix= 'K'
-      prefix_1= 'K'
-  else:
+  if u==0 or u==1:
+    prefix='p'
+    prefix_1='p'
+  if u>3 or u<0:
     floor= u//3
     if floor==0:
       prefix= 'p'
@@ -108,8 +98,9 @@ while 0<t<=4:
   if input_3=='Z' or input_3=='z':
     minimum=0.8*value
     maximum=1.8*value
-  elif input_1==10 and modulus==2 or input_1==1 and modulus==0:
+  elif value==1000 or minimum<=1000:
     minimum== minimum*1000
+    value= value/1000
     maximum= maximum/1000
     if floor==0:
       prefix= 'p'
@@ -138,7 +129,7 @@ while 0<t<=4:
   round_number= input("How many places would like to round your answers to?\n(you may hit enter or enter 'none' to not round)")
   if round_number==0 or round_number=="" or round_number=="none":
     round_min= minimum
-    rounnd_max= maximum
+    round_max= maximum
   else: 
     round_min= round(minimum, int(round_number))
     round_max= round(maximum, int(round_number))
