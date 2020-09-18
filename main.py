@@ -22,39 +22,12 @@ while 0<t<=4:
   u= int(input_2)
   modulus= u%3
   floor= (u)//3
-  value= x* 10**modulus
+  if modulus==2:
+    value= x* 10**(modulus +1)
+  else:
+    value= x* 10**modulus
   prefix=""
   prefix_1=""
-  if u==0 or u==1:
-    prefix='p'
-    prefix_1='p'
-  if u>3 or u<0:
-    floor= u//3
-    if floor==0:
-      prefix= 'p'
-      prefix_1= 'p'
-    if floor==1:
-      prefix= 'n'
-      prefix_1='n'
-    if floor== 2:
-      prefix= 'µ'
-      prefix_1= 'µ'
-    if floor== 3:
-      prefix= 'm'
-      prefix_1= 'm'
-    if floor==5:
-      prefix= 'K'
-      prefix_1= 'K'
-    if floor==6:
-      prefix= 'M'
-      prefix_1= 'M'
-    if floor==7:
-      prefix= 'G'
-      prefix_1='G'
-    if floor==8:
-      prefix= 'T'
-      prefix_1='T'
-    modulus= u%3
 
   if input_3=='A' or input_3=='a':
     minimum= 0.9995*value
@@ -98,10 +71,70 @@ while 0<t<=4:
   if input_3=='Z' or input_3=='z':
     minimum=0.8*value
     maximum=1.8*value
-  elif value==1000 or minimum<=1000:
-    minimum== minimum*1000
-    value= value/1000
-    maximum= maximum/1000
+
+  if u==0 or u==1:
+    prefix='p'
+    prefix_1='p'
+  if modulus==1:
+    if floor==0:
+      prefix= 'p'
+      prefix_1= 'p'
+    if floor==1:
+      prefix= 'n'
+      prefix_1='n'
+    if floor== 2:
+      prefix= 'µ'
+      prefix_1= 'µ'
+    if floor== 3:
+      prefix= 'm'
+      prefix_1= 'm'
+    if floor==5:
+      prefix= 'K'
+      prefix_1= 'K'
+    if floor==6:
+      prefix= 'M'
+      prefix_1= 'M'
+    if floor==7:
+      prefix= 'G'
+      prefix_1='G'
+    if floor==8:
+      prefix= 'T'
+      prefix_1='T'
+  if modulus==2 and x!=10:
+    value= value/100
+    minimum= minimum/100
+    maximum= maximum/100
+    if floor==0:
+      prefix= 'p'
+      prefix_1= 'p'
+    if floor==1:
+      prefix= 'n'
+      prefix_1='n'
+    if floor== 2:
+      prefix= 'µ'
+      prefix_1= 'µ'
+    if floor== 3:
+      prefix= 'm'
+      prefix_1= 'm'
+    if floor==5:
+      prefix= 'K'
+      prefix_1= 'K'
+    if floor==6:
+      prefix= 'M'
+      prefix_1= 'M'
+    if floor==7:
+      prefix= 'G'
+      prefix_1='G'
+    if floor==8:
+      prefix= 'T'
+      prefix_1='T'
+  if modulus==2 and x==10:
+    value=value/10000
+    minimum= minimum/10
+    maximum= maximum/10000
+    if u==2:
+      prefix='p'
+      prefix_1='p'
     if floor==0:
       prefix= 'p'
       prefix_1= 'f'
@@ -126,15 +159,81 @@ while 0<t<=4:
     if floor==8:
       prefix= 'T'
       prefix_1='G'
-  round_number= input("How many places would like to round your answers to?\n(you may hit enter or enter 'none' to not round)")
-  if round_number==0 or round_number=="" or round_number=="none":
+  
+  if u==3:
+    prefix='n'
+    prefix_1='n'
+
+    value= value
+    minimum= minimum
+    maximum= maximum
+    if floor==0:
+      prefix= 'p'
+      prefix_1= 'p'
+    if floor==1:
+      prefix= 'n'
+      prefix_1='n'
+    if floor== 2:
+      prefix= 'µ'
+      prefix_1= 'µ'
+    if floor== 3:
+      prefix= 'm'
+      prefix_1= 'm'
+    if floor==5:
+      prefix= 'K'
+      prefix_1= 'K'
+    if floor==6:
+      prefix= 'M'
+      prefix_1= 'M'
+    if floor==7:
+      prefix= 'G'
+      prefix_1='G'
+    if floor==8:
+      prefix= 'T'
+      prefix_1='T'
+
+
+  if value==1000 or minimum<=1:
+    minimum== minimum*1000
+    value= value/1000
+    maximum= maximum/1000
+    if u==2:
+      prefix='p'
+      prefix_1='p'
+    if floor==0:
+      prefix= 'p'
+      prefix_1= 'f'
+    if floor==1:
+      prefix= 'n'
+      prefix_1='p'
+    if floor== 2:
+      prefix= 'µ'
+      prefix_1= 'n'
+    if floor== 3:
+      prefix= 'm'
+      prefix_1= 'µ'
+    if floor==5:
+      prefix= 'K'
+      prefix_1=""
+    if floor==6:
+      prefix= 'M'
+      prefix_1= 'K'
+    if floor==7:
+      prefix= 'G'
+      prefix_1='M'
+    if floor==8:
+      prefix= 'T'
+      prefix_1='G'
+  round_number= input("How many places would like to round your answers to?\n(you may hit enter or enter 'none' to not round)\n")
+  if round_number=="" or round_number=="none":
     round_min= minimum
     round_max= maximum
+    print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}, and you didn't round your answers")
   else: 
     round_min= round(minimum, int(round_number))
     round_max= round(maximum, int(round_number))
-  print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}")
-  t=int(len(input("if these aren't the digits and symbols you wanted to enter \"redo\" else hit enter\n ")))
+    print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}, and you are rounding to {int(round_number)} decimal places")
+  t=int(len(input("if these aren't the digits and symbols you wanted, enter \"redo\" ; else hit enter\n ")))
 ##Gives out final products
   if t==4:
     print('Restart...\n')
