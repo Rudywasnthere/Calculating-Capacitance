@@ -290,7 +290,7 @@ if ask==2:
       d= input("Press enter to exit (any other button will let you redo the program")
       if d=="" :
         t+=5
-      print("It's party time: \n\n.( ´･･)ﾉ(._.`)   (╯°□°）╯︵ ┻━┻(ˉ﹃ˉ)   \n༼ つ ◕_◕ ༽つ(⌐■_■)(•_•)   (¬‿¬)(¬_¬ )(☞ﾟヮﾟ)☞☜(ﾟヮﾟ☜)   \n^_____^   q(≧▽≦q)[]~(￣▽￣)~*\n(✿◡‿◡)φ(゜▽゜*)♪o(*^＠^*)o  O(∩_∩)O  \n(づ￣ 3￣)づ\(￣︶￣*\))\n(* ￣3)(ε￣ *)(｡･∀･)ﾉﾞヾ(•ω•`)   \no◑﹏◐＼（〇_ｏ）／\n\n for all the chicky babes out there\n and the party words like 'angular velocity\n (said with a deep emphasis on 'velocity'\n:) \nGoodbye Comrade!")
+      print("It's party time: \n\n.( ´･･)ﾉ(._.`)   (╯°□°）╯︵ ┻━┻(ˉ﹃ˉ)   \n༼ つ ◕_◕ ༽つ(⌐■_■)(•_•)   (¬‿¬)(¬_¬ )(☞ﾟヮﾟ)☞☜(ﾟヮﾟ☜)   \n^_____^   q(≧▽≦q)[]~(￣▽￣)~*\n(✿◡‿◡)φ(゜▽゜*)♪o(*^＠^*)o  O(∩_∩)O  \n(づ￣ 3￣)づ\(￣︶￣*\))\n(* ￣3)(ε￣ *)(｡･∀･)ﾉﾞヾ(•ω•`)   \no◑﹏◐＼（〇_ｏ）／\n\n for all the chicky babes out there\n and the party words like 'angular velocity'\n (said with a deep emphasis on 'velocity'\n:) \nGoodbye Comrade!")
       if d!="":
         t=4
 
