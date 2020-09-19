@@ -3,10 +3,19 @@ import time, time
 import math, math
 print("Hi! I'm here to calculate capacitance and give you your variation :)\n")
 time.sleep(2)
-print("Make sure that your capacitor doesn't already tell you. If it has a prefix, most likely( p,f,n,µ,or m), then that is already your capacitance :), else:")
 t=1
+print("Make sure that your capacitor doesn't already tell you")
+time.sleep(2.5)
+print("If it has a prefix, most likely( p,f,n,µ,or m), then that is already your capacitance :)")
+time.sleep(2y.5)
+initial= input("else hit any key to begin or type 'no' to quit:\n")
+if initial =='no':
+  t=5
+  ask=2
+else: 
+  t=1
 while 0<t<=4:
-  
+##asks for user inputs to get original values and error checks them
   input_1= input("\nWhat are the first 2 digits of your capacitor:\n")
   if len(input_1)!=2: 
     if len(input_1) !=2 and math.ceil(float(input_1)+0.01)>1:
@@ -23,6 +32,7 @@ while 0<t<=4:
   if input_3 not in set_input3:
     print(f"m8, I said a letter, it has to be a valid one that's on capacitors, it\'s only one")
     input_3=input("What is the letter again...\n")
+##Its calculation time
   x= int(input_1)
   u= int(input_2)
   modulus= u%3
@@ -33,7 +43,7 @@ while 0<t<=4:
     value= x* 10**modulus
   prefix=""
   prefix_1=""
-
+##sets outputs for the end, probably too long and could be optimized
   if input_3=='A' or input_3=='a':
     minimum= 0.9995*value
     maximum= 1.0005*value
@@ -241,7 +251,9 @@ while 0<t<=4:
     if floor==8:
       prefix= 'T'
       prefix_1='G'
+##prompts user for how their outputs should be formatted
   round_number= input("How many places would like to round your answers to?\n(you may hit enter or enter 'none' to not round)\n")
+##figures out how to round based  on outputs
   if round_number=="" or round_number=="none":
     round_min= minimum
     round_max= maximum
@@ -256,6 +268,7 @@ while 0<t<=4:
     if 100<=value<1000:
       round_min= round(minimum, int(round_number)+3)
       round_max= round(maximum, int(round_number)+3)
+##verfies what the user wants for outputs
     print(f"The digits you enterd are {input_1} and {input_2}, and the letter {input_3}, and you are rounding to {int(round_number)} decimal places")
   t=int(len(input("if these aren't the digits and symbols you wanted, enter \"redo\"else hit enter\n ")))
 ##Gives out final products
@@ -264,15 +277,20 @@ while 0<t<=4:
     t=t
   elif t!=4:
     print(f"\nHere is your capacitance with a tolerance of {tolerance}:\n{value} {prefix}F \nmin= {round_min} {prefix_1}F\nmax= {round_max} {prefix}F\n\nderp ☉ ‿ ⚆")
+##restarts the loop if the user wants to go again
     ask= len(input("\nWould you like to go again? (yes or no please)\n"))
     if ask==3:
       t=4
-    if ask==2:
+    elif ask!=2 and ask!=3:
+      input("I\'m not sure what you saying there. Please re-enter \"yes\" or \"no\"")
+##end message, and checks to be sure user wants to leave
+
+if ask==2:
       print("I hope this program served you well!\nThank you for using.\nderp ☉ ‿ ⚆")
       d= input("Press enter to exit (any other button will let you redo the program")
       if d=="" :
         t+=5
+      print("⣿⣿⣿⣿⣿⣿⡿⠋⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⠀⣠⣾⣿⡿⠋⠀⠀⠉⠻⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⠀⣿⣿⣿⠃⠀⠀⣀⡀⠀⢹⣿⣿ ⣿⣿⣿⣿⣿⣿⡄⠀⠙⠻⠋⠀⠀⣸⣿⣿⠀⠀⣿⣿ ⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⣰⣿⣿⠟⠀⢠⣿⣿ ⣿⣿⣿⣿⣿⣿⡿⠛⠛⠒⠶⠾⢿⣿⣿⣷⣄⣾⣿⣿ ⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⢰⣿⣿⣷⣶⣦⣼⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⡀⠀⠙⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⢿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿ ⣿⣿⠀⠀⠀⠉⠉⠛⠛⠛⠶⢶⣤⣼⣿⣿⣿⣿⣿⣿ ⣿⣿⣦⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠁⠀⣾⣿⣷⡄⠀⢼⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⠀⢿⣿⣿⡿⠀⠈⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⣇⠀⠀⠉⠋⠁⠀⢠⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠿⢷⣤⣀⣀⣀⣠⣾⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⠀⠀⠈⠉⠉⠛⢻⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⣶⣦⣤⣤⣀⠀⠀⢸⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠹⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⡿⠛⠉⠉⠙⠻⣀⣀⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠁⠀⣀⡀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⢸⣿⡇⠀⣷⡀⠘⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⡄⠈⢻⡇⠀⡿⠃⠀⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⣷⣄⢸⡇⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⠉⠉⠑⠒⠲⠿⢿⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⣤⣄⣀⡀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⢺⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⠀⠉⠉⠙⠋⠀⠀⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⣤⣤⣀⣀⡀⠀⠀⣰⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣷⠀⢹⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⠀⠀⠉⠉⠉⠀⠀⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⣶⣤⣤⣀⣀⣀⣀⣰⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⡟⠉⠀⠀⠈⠙⢿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⢀⣤⡄⠀⡀⠀⢹⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⠀⢸⣿⡇⠀⣿⡄⠈⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⡆⠀⢹⡇⠀⠟⠁⢀⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⣿⣿⣿⣿⣦⣸⡇⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿")
       if d!="":
         t=4
-    elif ask!=2 and ask!=3:
-      input("I\'m not sure what you saying there. Please re-enter \"yes\" or \"no\"")
+
