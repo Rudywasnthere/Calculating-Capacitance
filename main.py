@@ -7,7 +7,7 @@ t=1
 print("Make sure that your capacitor doesn't already tell you")
 time.sleep(2.5)
 print("If it has a prefix, most likely( p,f,n,µ,or m), then that is already your capacitance :)")
-time.sleep(2y.5)
+time.sleep(2.5)
 initial= input("else hit any key to begin or type 'no' to quit:\n")
 if initial =='no':
   t=5
