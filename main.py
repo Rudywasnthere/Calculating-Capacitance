@@ -4,6 +4,7 @@ import math, math
 print("Hi! I'm here to calculate capacitance and give you your variation :)\n")
 time.sleep(3.5)
 t=1
+ask='no'
 print("Make sure that your capacitor doesn't already tell you")
 time.sleep(3)
 print("If it has a prefix, most likely( p,f,n,µ,or m), then that is already your capacitance :)")
@@ -278,14 +279,13 @@ while 0<t<=4:
   elif t!=4:
     print(f"\nHere is your capacitance with a tolerance of {tolerance}:\n{value} {prefix}F \nmin= {round_min} {prefix_1}F\nmax= {round_max} {prefix}F\n\nderp ☉ ‿ ⚆")
 ##restarts the loop if the user wants to go again
-    ask= len(input("\nWould you like to go again? (yes or no please)\n"))
-    if ask==3:
+    ask= input("\nWould you like to go again? (yes or no please)\n")
+    if ask=='yes' or ask=='Yes':
       t=4
-    elif ask!=2 and ask!=3:
+    elif ask!='no' and ask!='yes'and ask!="No" and ask!='Yes':
       input("I\'m not sure what you saying there. Please re-enter \"yes\" or \"no\"")
 ##end message, and checks to be sure user wants to leave
-
-if ask==2:
+    if ask=='no':
       print("I hope this program served you well!\nThank you for using.\nderp ☉ ‿ ⚆")
       d= input("Press enter to exit (any other button will let you redo the program")
       if d=="" :
@@ -293,4 +293,10 @@ if ask==2:
       print("It's party time: \n\n.( ´･･)ﾉ(._.`)   (╯°□°）╯︵ ┻━┻(ˉ﹃ˉ)   \n༼ つ ◕_◕ ༽つ(⌐■_■)(•_•)   (¬‿¬)(¬_¬ )(☞ﾟヮﾟ)☞☜(ﾟヮﾟ☜)   \n^_____^   q(≧▽≦q)[]~(￣▽￣)~*\n(✿◡‿◡)φ(゜▽゜*)♪o(*^＠^*)o  O(∩_∩)O  \n(づ￣ 3￣)づ\(￣︶￣*\))\n(* ￣3)(ε￣ *)(｡･∀･)ﾉﾞヾ(•ω•`)   \no◑﹏◐＼（〇_ｏ）／\n\n for all the chicky babes out there\n and the party words like 'angular velocity'\n (said with a deep emphasis on 'velocity'\n:) \nGoodbye Comrade!")
       if d!="":
         t=4
-
+if initial=='no' and ask!='no' or initial=='No' and ask!='no': 
+  print("I hope this program served you well!\nThank you for using.\nderp ☉ ‿ ⚆")
+  g= input("Press enter to exit (any other button will let you redo the program")
+  if g=="" :
+    print("It's party time: \n\n.( ´･･)ﾉ(._.`)   (╯°□°）╯︵ ┻━┻(ˉ﹃ˉ)   \n༼ つ ◕_◕ ༽つ(⌐■_■)(•_•)   (¬‿¬)(¬_¬ )(☞ﾟヮﾟ)☞☜(ﾟヮﾟ☜)   \n^_____^   q(≧▽≦q)[]~(￣▽￣)~*\n(✿◡‿◡)φ(゜▽゜*)♪o(*^＠^*)o  O(∩_∩)O  \n(づ￣ 3￣)づ\(￣︶￣*\))\n(* ￣3)(ε￣ *)(｡･∀･)ﾉﾞヾ(•ω•`)   \no◑﹏◐＼（〇_ｏ）／\n\n for all the chicky babes out there\n and the party words like 'angular velocity'\n (said with a deep emphasis on 'velocity'\n:) \nGoodbye Comrade!")
+    
+        
