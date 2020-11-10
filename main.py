@@ -277,7 +277,7 @@ while 0<t<=4:
     print('Restart...\n')
     t=t
   elif t!=4:
-    print(f"\nHere is your capacitance with a tolerance of {tolerance}:\n{value} {prefix}F \nmin= {round_min} {prefix_1}F\nmax= {round_max} {prefix}F\n\nderp ☉ ‿ ⚆")
+    print(f"\nHere is your capacitance with a tolerance of {tolerance}:\nCapacitance: {value} {prefix}F \nmin= {round_min} {prefix_1}F\nmax= {round_max} {prefix}F\n\nderp ☉ ‿ ⚆")
 ##restarts the loop if the user wants to go again
     ask= input("\nWould you like to go again? (yes or no please)\n")
     if ask=='yes' or ask=='Yes':
